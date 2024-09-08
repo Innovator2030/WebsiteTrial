@@ -14,6 +14,40 @@
     data-style='stick'
     data-ui="'true">
 </div>
+    <!-- jolecule widget will be inserted here, set the size with styles -->
+<div id="jolecule-embed"></div>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js">
+</script>
+<script>
+  require(['https://jolecule.com/js/jolecule.js'], function(jolecule) {
+    var widget = jolecule.initEmbedJolecule({
+      divTag: '#jolecule-embed', // jquery Tag to your div element
+      animateState: 'none', // 'none', 'loop', 'rotate', 'rock'
+      isSequenceBar: false, // shows sequence bar in the header
+      isGrid: false, // show docking grid panel
+      isEditable: false, // show editable buttons at the footer
+      isPlayable: true, // show playable option buttons at the footer
+      backgroundColor: 0x000000, // background of 3D context
+      maxWaitStep: 50, // time to wait per view in looping mode
+      isTextOverlay: true, // Show description text
+      isToolbarOnTop: false,
+      isToolbarOn: false,
+    })
+    widget.asyncAddDataServer(
+      jolecule.makePdbDataServer({
+        pdbId: "1mbo",  // pdbId for RCSB website
+        userId: "117908387177518174476",  // user_id to select views for a given author
+        isDisableSaveViews: false,  // prevent saving views
+        saveViewsUrl: 'https://jolecule.com',  // url to fetch views
+        isLoadViews: true, // attempts to load views
+        biounit: 0,  // loads biounit from pdb 0, 1, 2, 3...
+        viewId: 'view:e9mx4p' // initial view
+      })
+    )
+  })
+</script>
 </body>
 </html>
 
