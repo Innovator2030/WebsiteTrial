@@ -1,47 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3Dmol.js iGEM Trial</title>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js">
-    </script>
-
+    <title>3DRS Iframe Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        iframe {
+            border: none;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- jolecule widget will be inserted here, set the size with styles -->
-    <div id="jolecule-embed"></div>
-
-    <script>
-      require(['https://jolecule.com/js/jolecule.js'], function(jolecule) {
-        var widget = jolecule.initEmbedJolecule({
-          divTag: '#jolecule-embed', // JQuery selector for your div element
-          animateState: 'none', // 'none', 'loop', 'rotate', 'rock'
-          isSequenceBar: false, // Shows sequence bar in the header
-          isGrid: false, // Show docking grid panel
-          isEditable: false, // Show editable buttons at the footer
-          isPlayable: true, // Show playable option buttons at the footer
-          backgroundColor: 0x000000, // Background of 3D context
-          maxWaitStep: 50, // Time to wait per view in looping mode
-          isTextOverlay: true, // Show description text
-          isToolbarOnTop: false,
-          isToolbarOn: false,
-        });
-        widget.asyncAddDataServer(
-          jolecule.makePdbDataServer({
-            pdbId: "1mbo",  // PDB ID for RCSB website
-            userId: "117908387177518174476",  // User ID to select views for a given author
-            isDisableSaveViews: false,  // Prevent saving views
-            saveViewsUrl: 'https://jolecule.com',  // URL to fetch views
-            isLoadViews: true, // Attempts to load views
-            biounit: 0,  // Loads biounit from PDB 0, 1, 2, 3...
-            viewId: 'view:e9mx4p' // Initial view
-          })
-        );
-      });
-    </script>
+    <iframe width="500" height="500" src="https://mmb.irbbarcelona.org/3dRS/e/57cYbF" title="3dRS" allowfullscreen></iframe>
 </body>
 </html>
